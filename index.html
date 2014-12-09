@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<title>jQuery手机移动端日历日期选择 - 微前端</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.9.1.js" ></script>
+<script type="text/javascript" src="js/date.js" ></script>
+<script type="text/javascript" src="js/iscroll.js" ></script>
+<script type="text/javascript">
+$(function(){
+	$('#beginTime').date();
+	$('#endTime').date({theme:"datetime"});
+});
+</script>
+</head>
+<body>   
+<style type="text/css">
+.demo{width:300px;margin:40px auto 0 auto;}
+.demo .lie{margin:0 0 20px 0;}
+</style>
+<div class="demo">
+	<div class="lie">日期设置-1:<input  id="beginTime" class="kbtn" /></div>
+	<div class="lie">日期设置-2:<input id="endTime" class="kbtn" /></div>
+</div>
+<div id="datePlugin"></div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://www.vso.pw/" target="_blank">微前端</a></p>
+</div>
+</body>
+</html>
