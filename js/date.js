@@ -1,10 +1,10 @@
 /* 
  * 日期插件
  * 滑动选取日期（年，月，日）
- * V1.2
+ * V2.1
  */
-(function($) {
-    $.fn.date = function(options, Ycallback, Ncallback) {
+(function ($) {
+    $.fn.date = function (options, Ycallback, Ncallback) {
         //插件默认选项
         var that = $(this);
         var docType = $(this).is('input');
@@ -43,7 +43,8 @@
             theme: "date", //控件样式（1：日期，2：日期+时间）
             mode: null, //操作模式（滑动模式）
             event: "click", //打开日期插件默认方式为点击后后弹出日期
-            show: true
+            show: true,
+            fromat: 'yyyy/dd/mm'
         };
         //用户选项覆盖插件默认选项   
         var opts = $.extend(true, {}, $.fn.date.defaultOptions, options);
@@ -51,10 +52,10 @@
             datetime = true;
         }
         if (!opts.show) {
-            that.unbind('click');
+            that.unbind(opts.event);
         } else {
             //绑定事件（默认事件为获取焦点）
-            that.bind(opts.event, function() {
+            that.bind(opts.event, function () {
                 createUL(); //动态生成控件显示的日期
                 init_iScrll(); //初始化iscrll
                 extendOptions(); //显示控件
@@ -68,9 +69,9 @@
             });
         }
         //>2000年
-        if(opts.beginyear<2000){
-            initY=initY+100;
-        }      
+        if (opts.beginyear < 2000) {
+            initY = initY + 100;
+        }
 
         function refreshDate() {
             yearScroll.refresh();
@@ -102,14 +103,14 @@
             indexD = 1;
         }
 
-        function resetInitDete() { 
-            
+        function resetInitDete() {
+
             if (opts.curdate) {
                 return false;
             } else if (that.val() === "") {
                 return false;
             }
-            
+
             initY = parseInt(that.val().substr(2, 2));
             initM = parseInt(that.val().substr(5, 2));
             initD = parseInt(that.val().substr(8, 2));
@@ -117,20 +118,32 @@
 
         function bindButton() {
             resetIndex();
-            $("#dateconfirm").unbind('click').click(function() {
-                var datestr = $("#yearwrapper ul li:eq(" + indexY + ")").html().substr(0, $("#yearwrapper ul li:eq(" + indexY + ")").html().length - 1) + "-" +
-                    $("#monthwrapper ul li:eq(" + indexM + ")").html().substr(0, $("#monthwrapper ul li:eq(" + indexM + ")").html().length - 1) + "-" +
-                    $("#daywrapper ul li:eq(" + Math.round(indexD) + ")").html().substr(0, $("#daywrapper ul li:eq(" + Math.round(indexD) + ")").html().length - 1);
-                if (datetime) {
-                    if (Math.round(indexS) === 1) { //下午
-                        $("#Hourwrapper ul li:eq(" + indexH + ")").html(parseInt($("#Hourwrapper ul li:eq(" + indexH + ")").html().substr(0, $("#Hourwrapper ul li:eq(" + indexH + ")").html().length - 1)) + 12)
-                    } else {
-                        $("#Hourwrapper ul li:eq(" + indexH + ")").html(parseInt($("#Hourwrapper ul li:eq(" + indexH + ")").html().substr(0, $("#Hourwrapper ul li:eq(" + indexH + ")").html().length - 1)))
+            $("#dateconfirm").unbind('click').click(function () {
+
+                var datestr = function () {
+                    var d = '';
+                    d = opts.fromat.replace('yyyy', $("#yearwrapper ul li:eq(" + indexY + ")").html().substr(0, $("#yearwrapper ul li:eq(" + indexY + ")").html().length - 1));
+                    d = d.replace('mm', $("#monthwrapper ul li:eq(" + indexM + ")").html().substr(0, $("#monthwrapper ul li:eq(" + indexM + ")").html().length - 1));
+                    d = d.replace('dd', $("#daywrapper ul li:eq(" + Math.round(indexD) + ")").html().substr(0, $("#daywrapper ul li:eq(" + Math.round(indexD) + ")").html().length - 1))
+
+                    if (datetime) {
+                        if (Math.round(indexS) === 1) { //下午
+                            $("#Hourwrapper ul li:eq(" + indexH + ")").html(parseInt($("#Hourwrapper ul li:eq(" + indexH + ")").html()
+                                .substr(0, $("#Hourwrapper ul li:eq(" + indexH + ")").html().length - 1)) + 12)
+                        } else {
+                            $("#Hourwrapper ul li:eq(" + indexH + ")").html(parseInt($("#Hourwrapper ul li:eq(" + indexH + ")").html()
+                                .substr(0, $("#Hourwrapper ul li:eq(" + indexH + ")").html().length - 1)))
+                        }
+                        d = d.replace('hh', $("#Hourwrapper ul li:eq(" + indexH + ")").html().substr(0, $("#Minutewrapper ul li:eq(" + indexH + ")").html().length - 1));
+                        d = d.replace('ii', $("#Minutewrapper ul li:eq(" + indexI + ")").html().substr(0, $("#Minutewrapper ul li:eq(" + indexI + ")").html().length - 1));
+
+
+                        indexS = 0;
                     }
-                    datestr += " " + $("#Hourwrapper ul li:eq(" + indexH + ")").html().substr(0, $("#Minutewrapper ul li:eq(" + indexH + ")").html().length - 1) + ":" +
-                        $("#Minutewrapper ul li:eq(" + indexI + ")").html().substr(0, $("#Minutewrapper ul li:eq(" + indexI + ")").html().length - 1);
-                    indexS = 0;
+                    return d
+
                 }
+
 
                 if (Ycallback === undefined) {
                     if (docType) {
@@ -144,7 +157,7 @@
                 $("#datePage").hide();
                 $("#dateshadow").hide();
             });
-            $("#datecancle").click(function() {
+            $("#datecancle").click(function () {
                 $("#datePage").hide();
                 $("#dateshadow").hide();
                 //Ncallback(false);
@@ -163,7 +176,7 @@
             yearScroll = new iScroll("yearwrapper", {
                 snap: "li",
                 vScrollbar: false,
-                onScrollEnd: function() {
+                onScrollEnd: function () {
                     indexY = (this.y / 40) * (-1) + 1;
                     opts.endday = checkdays(strY, strM);
                     $("#daywrapper ul").html(createDAY_UL());
@@ -173,7 +186,7 @@
             monthScroll = new iScroll("monthwrapper", {
                 snap: "li",
                 vScrollbar: false,
-                onScrollEnd: function() {
+                onScrollEnd: function () {
                     indexM = (this.y / 40) * (-1) + 1;
                     opts.endday = checkdays(strY, strM);
                     $("#daywrapper ul").html(createDAY_UL());
@@ -183,7 +196,7 @@
             dayScroll = new iScroll("daywrapper", {
                 snap: "li",
                 vScrollbar: false,
-                onScrollEnd: function() {
+                onScrollEnd: function () {
                     indexD = (this.y / 40) * (-1) + 1;
                 }
             });
@@ -203,7 +216,7 @@
             HourScroll = new iScroll("Hourwrapper", {
                 snap: "li",
                 vScrollbar: false,
-                onScrollEnd: function() {
+                onScrollEnd: function () {
                     indexH = Math.round((this.y / 40) * (-1)) + 1;
                     HourScroll.refresh();
                 }
@@ -211,7 +224,7 @@
             MinuteScroll = new iScroll("Minutewrapper", {
                 snap: "li",
                 vScrollbar: false,
-                onScrollEnd: function() {
+                onScrollEnd: function () {
                     indexI = Math.round((this.y / 40) * (-1)) + 1;
                     HourScroll.refresh();
                 }
@@ -219,7 +232,7 @@
             SecondScroll = new iScroll("Secondwrapper", {
                 snap: "li",
                 vScrollbar: false,
-                onScrollEnd: function() {
+                onScrollEnd: function () {
                     indexS = Math.round((this.y / 40) * (-1));
                     HourScroll.refresh();
                 }

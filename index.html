@@ -11,8 +11,14 @@
 <script type="text/javascript" src="js/iscroll.js" ></script>
 <script type="text/javascript">
 $(function(){
-	$('#beginTime').date();
-	$('#endTime').date({theme:"datetime"});
+	$('#beginTime').date({
+		fromat: 'yyyy-mm-dd'
+	});
+	$('#endTime').date({
+		theme:"datetime",
+		
+		fromat: 'yyyy年mm月dd日 hh时ii分'
+	});
 });
 </script>
 </head>
@@ -27,7 +33,7 @@ $(function(){
 </div>
 <div id="datePlugin"></div>
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>来源：<a href="http://www.vsoui.com/" target="_blank">微前端</a></p>
+<p>来源：<a href="http://www.vsoui.com/" target="_blank">Blog</a></p>
 </div>
 </body>
 </html>
