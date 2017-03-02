@@ -18,7 +18,7 @@ $(document).date({
 
 ### 参数说明
 - `theme`：主题。默认`data`，只显示日期；`datetime`显示日期和时间
-- `fromat`：风格。默认`yyyy/mm/dd`和`yyyy/mm/dd hh:ii`。可支持：
+- `fromat`：风格。默认`yyyy/mm/dd`和`yyyy/mm/dd hh:ii`。支持：
     - `yyyy-mm-dd`和`yyyy-mm-dd hh:ii`
     - `yyyy年mm月dd日`和`yyyy年mm月dd日 hh时ii分`
 
