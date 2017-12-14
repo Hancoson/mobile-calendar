@@ -1,7 +1,7 @@
 # mobile calender(移动端日期选择插件)
 [![GitHub issues](https://img.shields.io/github/issues/Hancoson/mobile_calendar.svg)](https://github.com/Hancoson/mobile_calendar/issues)
-
 [![GitHub license](https://img.shields.io/github/license/Hancoson/mobile_calendar.svg)](https://github.com/Hancoson/mobile_calendar/blob/master/LICENSE)
+
 > [DEMO>>](http://hancoson.github.io/mobile_calendar/index.html)
 
 > _依赖 `jQuery(Zepto)`、`Iscroll`第三方库._
