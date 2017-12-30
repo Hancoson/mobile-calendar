@@ -1,4 +1,7 @@
 # mobile calender
+
+[![GitHub stars](https://img.shields.io/github/stars/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/stargazers)
+[![npm version](https://img.shields.io/npm/v/jq-mobile-calendar.svg)](https://www.npmjs.com/package/jq-mobile-calendar)
 [![GitHub issues](https://img.shields.io/github/issues/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/issues)
 [![GitHub license](https://img.shields.io/github/license/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/blob/master/LICENSE)
 
