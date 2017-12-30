@@ -1,16 +1,29 @@
-# mobile calender(移动端日期选择插件)
-[![GitHub issues](https://img.shields.io/github/issues/Hancoson/mobile_calendar.svg)](https://github.com/Hancoson/mobile_calendar/issues)
-[![GitHub license](https://img.shields.io/github/license/Hancoson/mobile_calendar.svg)](https://github.com/Hancoson/mobile_calendar/blob/master/LICENSE)
+# mobile calender
+[![GitHub issues](https://img.shields.io/github/issues/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/issues)
+[![GitHub license](https://img.shields.io/github/license/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/blob/master/LICENSE)
 
-> [DEMO>>](http://hancoson.github.io/mobile_calendar/index.html)
+> A mobile calender plugin.
 
-> _依赖 `jQuery(Zepto)`、`Iscroll`第三方库._
+> [DEMO>>](http://hancoson.github.io/mobile-calendar/test/index.html)
 
-## API说明
+![demo-images](http://7xtxh3.com1.z0.glb.clouddn.com/github/Jietu20171230-212811@2x.jpg
+)
 
-### 调用
+> _Be dependent on `jQuery(Zepto)` and `Iscroll` library._
 
+## API
+
+### How to use
+
+Download `mobile-calendar` folder and include it in your HTML document :
+
+```js
+<link href="./mobile-calendar/index.css" rel="stylesheet" type="text/css" />
+
+<script src="./mobile-calendar/index.js"></script>
 ```
+
+```js
 $(document).date();
 
 //or
@@ -20,9 +33,15 @@ $(document).date({
 });
 ```
 
-### 参数说明
-- `theme`：主题。默认`data`，只显示日期；`datetime`显示日期和时间
-- `fromat`：风格。默认`yyyy/mm/dd`和`yyyy/mm/dd hh:ii`。支持：
-    - `yyyy-mm-dd`和`yyyy-mm-dd hh:ii`
-    - `yyyy年mm月dd日`和`yyyy年mm月dd日 hh时ii分`
+### Parameters 
+- `theme`：default `data` , only show date；`datetime` show date and time.
+- `fromat`：Style . default `yyyy/mm/dd` and `yyyy/mm/dd hh:ii`. Example：
+    - `yyyy-mm-dd` and `yyyy-mm-dd hh:ii`
+    - `yyyy年mm月dd日` and `yyyy年mm月dd日 hh时ii分`
 
+
+## Authors
+
+[Hancoson](https://github.com/Hancoson)
+
+[MIT](https://github.com/Hancoson/mobile-calendar/blob/master/LICENSE)
