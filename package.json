@@ -1,5 +1,5 @@
 {
-  "name": "mobile-calendar",
+  "name": "jq-mobile-calendar",
   "version": "1.0.1",
   "description": "A mobile calendar plugin",
   "main": "index.js",
@@ -13,7 +13,9 @@
   "keywords": [
     "mobile",
     "calentar",
-    "javascript"
+    "javascript",
+    "jquery",
+    "日历"
   ],
   "author": "Hancoson (hancoson#163.com)",
   "license": "MIT",
