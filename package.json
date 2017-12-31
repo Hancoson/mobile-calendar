@@ -1,6 +1,6 @@
 {
   "name": "jq-mobile-calendar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A mobile calendar plugin",
   "main": "index.js",
   "scripts": {
