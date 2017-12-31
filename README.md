@@ -4,8 +4,8 @@
 [![npm version](https://img.shields.io/npm/v/jq-mobile-calendar.svg)](https://www.npmjs.com/package/jq-mobile-calendar)
 [![GitHub issues](https://img.shields.io/github/issues/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/issues)
 [![GitHub license](https://img.shields.io/github/license/Hancoson/mobile-calendar.svg)](https://github.com/Hancoson/mobile-calendar/blob/master/LICENSE)
-[![npm](https://img.shields.io/npm/dw/mobile-calenda.svg)](https://www.npmjs.com/package/mobile-calenda)
-[![npm](https://img.shields.io/npm/dt/mobile-calenda.svg)](https://www.npmjs.com/package/mobile-calenda)
+[![npm](https://img.shields.io/npm/dw/jq-mobile-calendar.svg)](https://www.npmjs.com/package/jq-mobile-calendar)
+[![npm](https://img.shields.io/npm/dt/jq-mobile-calendar.svg)](https://www.npmjs.com/package/jq-mobile-calendar)
 
 > A mobile calender plugin.
 
