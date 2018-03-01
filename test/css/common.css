@@ -210,7 +210,7 @@ li {
 
 #dateshadow {
   display: none;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -224,7 +224,7 @@ li {
 #datePage {
   font-size: 22px;
   border-radius: 3px;
-  position: absolute;
+  position: fixed;
   top: 110px;
   MARGIN-RIGHT: auto;
   vertical-align: middle;
