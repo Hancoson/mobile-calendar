@@ -27,8 +27,6 @@ Download `mobile-calendar` folder and include it in your HTML document :
 <script src="./mobile-calendar/index.js"></script>
 ```
 
-Of course, in your HTML you should add `<div id="datePlugin"></div>`.
-
 
 ```js
 $(document).date();
@@ -39,6 +37,9 @@ $(document).date({
     fromat: 'yyyy/mm/dd'
 });
 ```
+
+Of course, in your HTML you should add `<div id="datePlugin"></div>`. Or you can refer to my demo: `./test/index.html`
+
 
 ### Parameters 
 - `theme`：default `data` , only show date；`datetime` show date and time.
